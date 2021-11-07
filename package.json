@@ -1,0 +1,21 @@
+{
+  "name": "cs361_project",
+  "version": "1.0.0",
+  "description": "This is the US National Park web application project for CS361.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "CS361",
+    "National",
+    "Parks",
+    "Oregon",
+    "State"
+  ],
+  "author": "Michael Allcock",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

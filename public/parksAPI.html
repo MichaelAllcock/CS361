@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>US National Park API</title>
+        <link rel="stylesheet" href="API.css">
+
+    </head>
+    <body>
+        <h1>United States National Parks API</h1>
+        <div class="search">
+            <form id="search">
+                <input type="text" id="textInput" placeholder="Search for Parks..." value="">
+                <button type="submit" id="searchBtn">Submit</button>
+            </form>
+            <p>Results:</p>
+            <div id="results">
+                <p id="pname"></p>
+                <p id="state"></p>
+                <p id="geo"></p>
+                <p id="date"></p>
+                <p id="area"></p>
+                <p id="vis"></p>
+                <p id="web"></p>
+                <p id="dwnld"></p>
+                <p id="dwnld2"></p>
+            </div>
+        </div>
+        <div class="list">
+            <h3>List of parks to search for:</h3>
+            <ul id="State-Terr-List" style="list-style-type: none;">
+                <li class="list-header">Alaska 
+                    <ul>
+                        <li class="list-item"><a href="#">Denali</a></li>
+                        <li class="list-item"><a href="#">Gates of the Arctic</a></li>
+                        <li class="list-item"><a href="#">Glacier Bay</a></li>
+                        <li class="list-item"><a href="#">Katmai</a></li>
+                        <li class="list-item"><a href="#">Kenai Fjords</a></li>
+                        <li class="list-item"><a href="#">Kobuk Valley</a></li>
+                        <li class="list-item"><a href="#">Lake Clark</a></li>
+                        <li class="list-item"><a href="#">Wrangell - St. Elias</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">American Samoa
+                    <ul>
+                        <li class="list-item"><a href="#">American Samoa</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Arizona
+                    <ul>
+                        <li class="list-item"><a href="#">Grand Canyon</a></li>
+                        <li class="list-item"><a href="#">Petrified Forest</a></li>
+                        <li class="list-item"><a href="#">Saguaro</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Arkansas
+                    <ul>
+                        <li class="list-item"><a href="#">Hot Springs</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">California
+                    <ul>
+                        <li class="list-item"><a href="#">Channel Islands</a></li>
+                        <li class="list-item"><a href="#">Death Valley</a></li>
+                        <li class="list-item"><a href="#">Joshua Tree</a></li>
+                        <li class="list-item"><a href="#">Kings Canyon</a></li>
+                        <li class="list-item"><a href="#">Lassen Volcanic</a></li>
+                        <li class="list-item"><a href="#">Pinnacles</a></li>
+                        <li class="list-item"><a href="#">Redwood</a></li>
+                        <li class="list-item"><a href="#">Sequoia</a></li>
+                        <li class="list-item"><a href="#">Yosemite</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Colorado
+                    <ul>
+                        <li class="list-item"><a href="#">Black Canyon of the Gunnison</a></li>
+                        <li class="list-item"><a href="#">Great Sand Dunes</a></li>
+                        <li class="list-item"><a href="#">Mesa Verde</a></li>
+                        <li class="list-item"><a href="#">Rocky Mountain</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Florida
+                    <ul>
+                        <li class="list-item"><a href="#">Biscayne</a></li>
+                        <li class="list-item"><a href="#">Dry Tortugas</a></li>
+                        <li class="list-item"><a href="#">Everglades</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Hawaii
+                    <ul>
+                        <li class="list-item"><a href="#">Haleakala</a></li>
+                        <li class="list-item"><a href="#">Hawaii Volcanoes</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Indiana
+                    <ul>
+                        <li class="list-item"><a href="#">Indiana Dunes</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Kentucky
+                    <ul>
+                        <li class="list-item"><a href="#">Mammoth Cave</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Maine
+                    <ul>
+                        <li class="list-item"><a href="#">Acadia</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Michigan
+                    <ul>
+                        <li class="list-item"><a href="#">Isle Royale</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Minnesota
+                    <ul>
+                        <li class="list-item"><a href="#">Voyageurs</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Missouri
+                    <ul>
+                        <li class="list-item"><a href="#">Gateway Arch</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Montana
+                    <ul>
+                        <li class="list-item"><a href="#">Glacier</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Nevada
+                    <ul>
+                        <li class="list-item"><a href="#">Great Basin</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">New Mexico
+                    <ul>
+                        <li class="list-item"><a href="#">Carlsbad Caverns</a></li>
+                        <li class="list-item"><a href="#">White Sands</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">North Carolina
+                    <ul>
+                        <li class="list-item"><a href="#">Great Smoky Mountains</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">North Dakota
+                    <ul>
+                        <li class="list-item"><a href="#">Theodore Roosevelt</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Ohio
+                    <ul>
+                        <li class="list-item"><a href="#">Cuyahoga Valley</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Oregon
+                    <ul>
+                        <li class="list-item"><a href="#">Crater Lake</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">South Carolina
+                    <ul>
+                        <li class="list-item"><a href="#">Congaree</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">South Dakota
+                    <ul>
+                        <li class="list-item"><a href="#">Badlands</a></li>
+                        <li class="list-item"><a href="#">Wind Cave</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Texas
+                    <ul>
+                        <li class="list-item"><a href="#">Big Bend</a></li>
+                        <li class="list-item"><a href="#">Guadalupe Mountains</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">US Virgin Islands
+                    <ul>
+                        <li class="list-item"><a href="#">Virgin Islands</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Utah
+                    <ul>
+                        <li class="list-item"><a href="#">Arches</a></li>
+                        <li class="list-item"><a href="#">Bryce Canyon</a></li>
+                        <li class="list-item"><a href="#">Canyonlands</a></li>
+                        <li class="list-item"><a href="#">Capitol Reef</a></li>
+                        <li class="list-item"><a href="#">Zion</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Virginia
+                    <ul>
+                        <li class="list-item"><a href="#">Shenandoah</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Washington
+                    <ul>
+                        <li class="list-item"><a href="#">Mount Rainier</a></li>
+                        <li class="list-item"><a href="#">North Cascades</a></li>
+                        <li class="list-item"><a href="#">Olympic</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">West Virginia
+                    <ul>
+                        <li class="list-item"><a href="#">New River Gorge</a></li>
+                    </ul>
+                </li>
+                <li class="list-header">Wyoming
+                    <ul>
+                        <li class="list-item"><a href="#">Grand Teton</a></li>
+                        <li class="list-item"><a href="#">Yellowstone</a></li>
+                    </ul>
+                </li>
+                </ul>
+    
+        </div>
+
+        <script>
+            const search = document.getElementById('search');
+            const results = document.getElementById('results');
+            search.addEventListener('submit', searchSubmit);
+    
+            async function searchSubmit(event) {
+                event.preventDefault();
+                const response = await fetch('/all');
+                const parkData = await response.json();
+                //console.log(parkData);
+
+                const input = document.getElementById("textInput").value;
+                const data = getData(parkData, input);
+                console.log(input);
+                console.log(data);
+                
+                //const myData = JSON.stringify(data)
+                //await console.log(myData);
+                str1 = "Name: " + input + " National Park";
+                str2 = "State: " + data.State;
+                str3 = "Coordinates: " + data.Latitude + "°" + "," + " "+ data.Longitude + "°";
+                str4 = "Date Established: " + data.Date_Established;
+                str5 = "Area (km^2): " + data.Area;
+                str6 = "Visitors in 2019: " + data.Visitors;
+                str7 = "Website: ";
+                website = data.Website
+
+                pname.innerHTML = str1;
+                state.innerHTML = str2;
+                geo.innerHTML = str3;
+                date.innerHTML = str4;
+                area.innerHTML = str5;
+                vis.innerHTML = str6;
+                web.innerHTML = str7 + website.link(website);
+
+                const dwnldData = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data));
+                const dwnldAllData = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(parkData));
+
+                const a = document.createElement('a');
+                a.href = 'data:' + dwnldData;
+                a.download = input + '.json';
+                a.innerHTML = 'Download JSON file';
+                const container = document.getElementById('dwnld');
+                container.appendChild(a);
+
+                const a2 = document.createElement('a');
+                a2.href = 'data:' + dwnldAllData;
+                a2.download = 'USNPData.json';
+                a2.innerHTML = 'Download all park data';
+                const container2 = document.getElementById('dwnld2');
+                container2.appendChild(a2);
+
+        }
+            // Function to find search input
+            function getData (obj, key) {
+                if( key in obj )
+                    {
+                        //console.log( obj[key] );
+                        return obj[key];
+                    }
+                else
+                {
+                    console.log( "The key '" + key + "' is not in obj." );
+                }
+            };
+        </script>
+        
+    </body>
+</html>
