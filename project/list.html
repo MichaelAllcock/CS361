@@ -53,7 +53,7 @@
                     <span class="link-text">Map</span>
                 </a>
             </li>
-            <li class="nav-item">
+        <!--    <li class="nav-item">
                 <a href="#" class="nav-link">
                     <svg 
                         aria-hidden="true" 
@@ -72,7 +72,7 @@
                     </svg>
                     <span class="link-text">Visited</span>
                 </a>
-            </li>
+            </li> -->
 
             <li class="nav-item">
                 <a href="list.html" class="nav-link">
@@ -127,41 +127,40 @@
     <main>
         <div class="container">
             <h2>List of US National Parks by State/Territory</h2>
-            <input type="text" id="textInput" onkeyup="filterNames()" placeholder="Search for Park Names..." title="Type in a name">
             <ul id="State-Terr-List" style="list-style-type: none;">
             <li class="list-header">Alaska 
                 <ul>
-                    <li class="list-item"><a href="#">Denali</a></li>
-                    <li class="list-item"><a href="#">Gates of the Arctic</a></li>
-                    <li class="list-item"><a href="#">Glacier Bay</a></li>
-                    <li class="list-item"><a href="#">Katmai</a></li>
-                    <li class="list-item"><a href="#">Kenai Fjords</a></li>
-                    <li class="list-item"><a href="#">Kobuk Valley</a></li>
-                    <li class="list-item"><a href="#">Lake Clark</a></li>
-                    <li class="list-item"><a href="#">Wrangell - St. Elias</a></li>
+                    <li class="list-item" id="parkName" value="Denali" ><a href="parks/dena.html">Denali</a></li>
+                    <li class="list-item"><a href="parks/gaar.html">Gates of the Arctic</a></li>
+                    <li class="list-item"><a href="parks/glba.html">Glacier Bay</a></li>
+                    <li class="list-item"><a href="parks/katm.html">Katmai</a></li>
+                    <li class="list-item"><a href="parks/kefj.html">Kenai Fjords</a></li>
+                    <li class="list-item"><a href="parks/kova.html">Kobuk Valley</a></li>
+                    <li class="list-item"><a href="parks/lacl.html">Lake Clark</a></li>
+                    <li class="list-item"><a href="parks/wrst.html">Wrangell - St. Elias</a></li>
                 </ul>
             </li>
             <li class="list-header">American Samoa
                 <ul>
-                    <li class="list-item"><a href="#">American Samoa</a></li>
+                    <li class="list-item"><a href="parks/npsa.html">American Samoa</a></li>
                 </ul>
             </li>
             <li class="list-header">Arizona
                 <ul>
-                    <li class="list-item"><a href="#">Grand Canyon</a></li>
-                    <li class="list-item"><a href="#">Petrified Forest</a></li>
-                    <li class="list-item"><a href="#">Saguaro</a></li>
+                    <li class="list-item"><a href="parks/grca.html">Grand Canyon</a></li>
+                    <li class="list-item"><a href="parks/pefo.html">Petrified Forest</a></li>
+                    <li class="list-item"><a href="parks/sagu.html">Saguaro</a></li>
                 </ul>
             </li>
             <li class="list-header">Arkansas
                 <ul>
-                    <li class="list-item"><a href="#">Hot Springs</a></li>
+                    <li class="list-item"><a href="parks/hosp.html">Hot Springs</a></li>
                 </ul>
             </li>
             <li class="list-header">California
                 <ul>
-                    <li class="list-item"><a href="#">Channel Islands</a></li>
-                    <li class="list-item"><a href="#">Death Valley</a></li>
+                    <li class="list-item"><a href="parks/chis.html">Channel Islands</a></li>
+                    <li class="list-item"><a href="parks/deva.html">Death Valley</a></li>
                     <li class="list-item"><a href="#">Joshua Tree</a></li>
                     <li class="list-item"><a href="#">Kings Canyon</a></li>
                     <li class="list-item"><a href="#">Lassen Volcanic</a></li>
@@ -314,33 +313,17 @@
             </li>
             </ul>
         </div>
-        <script>
-            // function for list filter
-            function filterNames() {
-                var input, filter, ul, li, a, i, txtValue;
-                input = document.getElementById("textInput");
-                filter = input.value.toUpperCase();
-
-                // Get names from ul
-                ul = document.getElementById("State-Terr-List");
-
-                // Get lis from ul
-                li = ul.querySelectorAll("li.list-item");
-
-                // Loop through list-item li's
-                for (i = 0; i < li.length; i++) {
-                    a = li[i].getElementsByTagName("a")[0];
-                    txtValue = a.textContent || a.innerText;
-                    // If match found
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        li[i].style.display = "";
-                    } else {
-                        li[i].style.display = "none";
-                    }
-                }
-            }
-        </script>
     </main>
 
+<!--    <script>
+        var park = document.getElementById('park');
+        park.addEventListener('onclick', parkLink());
+
+        async function parkLink(event) {
+            var input = document.getElementById("parkName").value;
+            location.href = '/parks/'+ input + '.html'
+        }
+    </script> -->
 
 </body>
+</html>

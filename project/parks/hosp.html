@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>United States National Parks - Search</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Hot Springs - United States National Parks</title>
+    <link rel="stylesheet" href="parks_style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.skypack.dev/maplibre-gl/dist/maplibre-gl.css">    
 
 </head>
 
@@ -35,7 +36,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="index.html" class="nav-link">
+                <a href="/project/index.html" class="nav-link">
                     <svg 
                         aria-hidden="true" 
                         focusable="false" 
@@ -76,7 +77,7 @@
             </li> -->
 
             <li class="nav-item">
-                <a href="list.html" class="nav-link">
+                <a href="/project/list.html" class="nav-link">
                     <svg 
                         aria-hidden="true" 
                         focusable="false" 
@@ -96,7 +97,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="search.html" class="nav-link">
+                <a href="/project/search.html" class="nav-link">
                     <svg 
                         aria-hidden="true" 
                         focusable="false" 
@@ -125,18 +126,17 @@
     <header>
         <h1>United States National Parks</h1>
     </header>
+    
     <main>
+    <div>
         <div class="title">
-            <h2>Quick search facts about the Parks!</h2>
+            <h2 id="pname"></h2>
         </div>
-        <div class="search">
-            <form id="search">
-                <input type="text" id="textInput" placeholder="Search for Parks..." value="">
-                <button type="submit" id="searchBtn">Submit</button>
-            </form>
-            <p>Results:</p>
+        
+        <div class="info">
+            <img id="parkImg" src="/project/img/hosp.jpeg" alt="Hot Springs National Park" style="width: 300px; height:200px;">
+
             <div id="results">
-                <p id="pname"></p>
                 <p id="state"></p>
                 <p id="geo"></p>
                 <p id="date"></p>
@@ -145,26 +145,34 @@
                 <p id="web"></p>
             </div>
         </div>
+        
+        <div class="map">
+            <div id="my-map" >
+                <iframe  width="1000" height="600"></iframe>
+            </div>
         </div>
+<!--    <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d921343.5536767562!2d-151.36323567106953!3d63.19067373239577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1635967079032!5m2!1sen!2sus" width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>        
+        </div> -->
+    </div>
     </main>
 
+    <!--Script to populate Park info-->
     <script>
-        var search = document.getElementById('search');
-        var results = document.getElementById('results');
-        search.addEventListener('submit', searchSubmit);
+        searchSubmit();
 
         async function searchSubmit(event) {
-            event.preventDefault();
+            //event.preventDefault();
             const response = await fetch('/all');
             const parkData = await response.json();
-           // console.log(parkData);
+            //console.log(parkData);
 
-            var input = document.getElementById("textInput").value;
+            var input = "Hot Springs";
             var data = getData(parkData, input);
-           // console.log(input);
-           // console.log(data);
+            //console.log(input);
+            //console.log(data);
         
-            str1 = "Name: " + input + " National Park";
+            str1 = input + " National Park";
             str2 = "State: " + data.State;
             str3 = "Coordinates: " + data.Latitude + "°" + ", " + data.Longitude + "°";
             str4 = "Date Established: " + data.Date_Established;
@@ -194,7 +202,79 @@
                 console.log( "The key '" + key + "' is not in obj." );
             }
         };
+
+    </script>
+
+    <!--Script for Map element-->
+    <script type="module">
+        import maplibregl from 'https://cdn.skypack.dev/maplibre-gl@2.0.0-pre.5';
+
+        
+        // Map Script
+        // Input lon and lat
+        const lon = -93.06514; 
+        const lat = 34.532203;
+
+        function drawMap(maplibregl){
+            const mapTilerKey = "b1f46c812f0f4a7485e46c797622ab4a"    
+            const map = new maplibregl.Map({
+            container: "my-map",
+            style: `https://maps.geoapify.com/v1/styles/osm-bright/style.json?apiKey=${mapTilerKey}`,
+            center: [lon, lat],
+            zoom: 12
+            })
+            
+
+            map.addControl(new maplibregl.NavigationControl());
+            
+
+            return map;
+        };
+
+        var map = drawMap(maplibregl);
+
+        addMarkerFromLonLatArr([[lon, lat]])
+
+        // addMarkerFromLonLatArr[[lon_1,lat_1],[lon_2,lat_2]...[lon_i,lat_i]]
+        function addMarkerFromLonLatArr(arr){
+            // I kept it in terms of i so if you have another array that 
+            // has information about said marker you can still reference it
+            //let bounds = new maplibregl.LngLatBounds(); // defines the bounds 
+            for (let i = 0; i < arr.length; i++){
+                let icon = document.createElement('div');
+                icon.classList.add("icon");
+                icon.setAttribute("id", "icon" + i);
+                // This step above allows you to add event handlers for each icon
+                let iconPopup = new maplibregl.Popup({
+                    anchor: 'bottom',
+                    offset: [0, -64] // height - shadow
+                })
+                .setText('Hot Springs National Park');
+            
+                let iconMarker = new maplibregl.Marker(icon, {
+                    anchor: 'bottom',
+                    offset: [0, 6]
+                })
+                .setLngLat(arr[i])
+                .setPopup(iconPopup)
+                .addTo(map);
+
+                //map.setCenter(arr[i])
+                // icon.onclick = (event) => {
+                    // you can add custom logic here. For example, modify popup.
+                //    iconPopup.setHTML(`<p>${event.target.getAttribute('id')}</p>`);
+                //    event.stopPropagation();
+                //}
+
+                icon.onmouseenter = () => iconMarker.togglePopup(); // show/hide popup on mouse hover
+                icon.onmouseleave = () => iconMarker.togglePopup();
+
+            }
+            
+        }
+
     </script>
 
 </body>
+
 </html>
