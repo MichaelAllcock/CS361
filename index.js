@@ -9,11 +9,21 @@ const { request, response } = require('express');
 const express = require('express');
 const app = express();
 
-const port = 3000
-app.listen(port, () => console.log('Server listening at Port', port));
+// Setting up cors for API use by client
+const cors = require('cors');
+const corsOptions = {
+    origin: true,
+    credentials: true,
+    optionSuccessStatus: 200
+}
+
+const port = 8050
+app.listen(port, () => console.log('http://flip2.engr.oregonstate.edu:/', port));
 console.log('Close server with ^C');
 app.use(express.static('public'));
 app.use(express.json({limit: '1mb'}));
+
+app.use(cors());
 
 
 //Routes
