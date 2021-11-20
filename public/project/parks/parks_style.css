@@ -43,9 +43,24 @@ main {
 div.info {
     position: absolute;
     right: 2rem;
-    font-size: 1.4rem;
+    font-size: 1rem;
     background-color: white;
     height: 100%;
+}
+
+#parkImg {
+    display: block;
+    margin: auto;
+    width: 470px;
+    height: auto;
+}
+
+
+div.map {
+    position: absolute;
+    width: 60%;
+    height: auto;
+    z-index: -1;
 }
 
 .navbar {
@@ -124,3 +139,11 @@ div.info {
     letter-spacing: 0.3ch;
     width: 100%;
 }
+
+.icon {
+    height: 69px;
+    width: 47px;
+    background-image: url(https://api.geoapify.com/v1/icon/?icon=tree&color=%23228b22&size=large&type=awesome&apiKey=b1f46c812f0f4a7485e46c797622ab4a);
+    background-size: contain;
+    cursor: pointer;
+  }

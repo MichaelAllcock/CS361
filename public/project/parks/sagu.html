@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Denali - United States National Parks</title>
+    <title>Saguaro - United States National Parks</title>
     <link rel="stylesheet" href="parks_style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
@@ -134,7 +134,7 @@
         </div>
         
         <div class="info">
-            <img id="parkImg" src="/project/img/denali.jpeg" alt="Denali National Park">
+            <img id="parkImg" src="/project/img/sagu.jpeg" alt="Saguaro National Park">
 
             <div id="results">
                 <p id="state"></p>
@@ -164,7 +164,7 @@
             const parkData = await response.json();
             //console.log(parkData);
 
-            var input = "Denali";
+            var input = "Saguaro";
             var data = getData(parkData, input);
             //console.log(input);
             //console.log(data);
@@ -209,8 +209,8 @@
         
         // Map Script
         // Input lon and lat
-        const lon = -151.187402; 
-        const lat = 63.097595;
+        const lon = -111.166602; 
+        const lat = 32.296465;
 
         function drawMap(maplibregl){
             const mapTilerKey = "b1f46c812f0f4a7485e46c797622ab4a"    
@@ -218,7 +218,7 @@
             container: "my-map",
             style: `https://maps.geoapify.com/v1/styles/osm-carto/style.json?apiKey=${mapTilerKey}`,
             center: [lon, lat],
-            zoom: 6.5
+            zoom: 10
             })
             
 
@@ -246,7 +246,7 @@
                     anchor: 'bottom',
                     offset: [0, -64] // height - shadow
                 })
-                .setText('Denali National Park');
+                .setText('Saguaro National Park');
             
                 let iconMarker = new maplibregl.Marker(icon, {
                     anchor: 'bottom',
