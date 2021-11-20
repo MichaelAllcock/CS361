@@ -126,6 +126,7 @@
         <h1>United States National Parks</h1>
     </header>
     <main>
+        
         <div class="title">
             <h2>Quick search facts about the Parks!</h2>
         </div>
@@ -144,9 +145,16 @@
                 <p id="vis"></p>
                 <p id="web"></p>
             </div>
+        </div>   
+        
+        <div class="info">
+            <p>
+                Test Div placement
+            </p>
         </div>
-        </div>
+    
     </main>
+    
 
     <script>
         var search = document.getElementById('search');
@@ -181,6 +189,12 @@
             vis.innerHTML = str6;
             web.innerHTML = str7 + website.link(website);
 
+            /* ----------------------------------------------------------------------------
+            const wiki = await fetch('http://flip2.engr.oregonstate.edu:4203/?page=' + input + '_National_Park');
+            const wikiData = await wiki.json();
+            console.log(wikiData);
+            */
+
         }
         // Function to find search input
         function getData (obj, key) {
@@ -194,6 +208,8 @@
                 console.log( "The key '" + key + "' is not in obj." );
             }
         };
+    
+    
     </script>
 
 </body>
