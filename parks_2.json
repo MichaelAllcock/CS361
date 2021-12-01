@@ -55,8 +55,8 @@
   },
   "Lake Clark": {
     "State": "Alaska",
-    "Latitude": 60.406263,
-    "Longitude": -154.326849,
+    "Latitude": 60.550586,
+    "Longitude": -153.360524,
     "Date_Established": "December 2, 1980",
     "Area": "10,602.0",
     "Visitors": "17,157",
@@ -260,7 +260,7 @@
     "Visitors": "1,118,300",
     "Website": "https://www.nps.gov/ever/index.htm"
   },
-  "Haleakalā": {
+  "Haleakala": {
     "State": "Hawaii",
     "Latitude": 20.718232,
     "Longitude": -156.146735,
@@ -269,7 +269,7 @@
     "Visitors": "994,394",
     "Website": "https://www.nps.gov/hale/index.htm"
   },
-  "Hawai’i Volcanoes": {
+  "Hawaii Volcanoes": {
     "State": "Hawaii",
     "Latitude": 19.383153,
     "Longitude": -155.279313,
