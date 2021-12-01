@@ -117,38 +117,41 @@ main {
     width: 100%;
 }
 
-.icon {
-    height: 30px;
-    width: 20px;
-    background-image: url(https://api.geoapify.com/v1/icon/?icon=tree&color=%23228b22&size=small&type=awesome&apiKey=b1f46c812f0f4a7485e46c797622ab4a);
-    background-size: contain;
-    cursor: pointer;
-  }
-
-
-div.map {
-    position: absolute;
-    align-content: center;
-    width: 93.5%;
-    height: auto;
-    z-index: -1;
+#textInput {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
 }
 
-div.info {
-    position: absolute;
-    max-width: 700px;
-    text-indent: 50px;
-    right: 2rem;
-    font-size: 1rem;
-    background-color: white;
-    height: 100%;
-    top: 20%;
-    padding-bottom: 50px;
+#State-Terr-List {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
-#parkImg {
-    display: block;
-    margin: auto;
-    width: 470px;
-    height: auto;
+#State-Terr-List li {
+    border: 1px solid #ddd;
+    margin-top: 5px; /* Prevent double borders */
+    background-color: #f6f6f6;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block
+}
+
+#State-Terr-List li a {
+    background-color: #f6f6f6;
+    margin-top: -1px;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block
+}
+
+#State-Terr-List li a:hover:not(.header) {
+    background-color: #eee;
 }

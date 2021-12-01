@@ -42,10 +42,11 @@ main {
 
 div.info {
     position: absolute;
+    float: left;
     right: 2rem;
     font-size: 1rem;
     background-color: white;
-    height: 100%;
+    width: 30%;
 }
 
 #parkImg {
@@ -55,9 +56,9 @@ div.info {
     height: auto;
 }
 
-
 div.map {
     position: absolute;
+    float: left;
     width: 60%;
     height: auto;
     z-index: -1;
