@@ -138,15 +138,11 @@
         searchSubmit();
 
         async function searchSubmit(event) {
-            //event.preventDefault();
             const response = await fetch('/all');
             const parkData = await response.json();
-            //console.log(parkData);
 
             var input = "Petrified Forest";
             var data = getData(parkData, input);
-            //console.log(input);
-            //console.log(data);
         
             str1 = input + " National Park";
             str2 = "State: " + data.State;
@@ -170,7 +166,6 @@
         function getData (obj, key) {
             if( key in obj )
                 {
-                    //console.log( obj[key] );
                     return obj[key];
                 }
             else
@@ -185,9 +180,6 @@
     <script type="module">
         import maplibregl from 'https://cdn.skypack.dev/maplibre-gl@2.0.0-pre.5';
 
-        
-        // Map Script
-        // Input lon and lat
         const lon = -109.782404; 
         const lat = 35.065849;
 
@@ -211,19 +203,15 @@
 
         addMarkerFromLonLatArr([[lon, lat]])
 
-        // addMarkerFromLonLatArr[[lon_1,lat_1],[lon_2,lat_2]...[lon_i,lat_i]]
         function addMarkerFromLonLatArr(arr){
-            // I kept it in terms of i so if you have another array that 
-            // has information about said marker you can still reference it
-            //let bounds = new maplibregl.LngLatBounds(); // defines the bounds 
             for (let i = 0; i < arr.length; i++){
                 let icon = document.createElement('div');
                 icon.classList.add("icon");
                 icon.setAttribute("id", "icon" + i);
-                // This step above allows you to add event handlers for each icon
+               
                 let iconPopup = new maplibregl.Popup({
                     anchor: 'bottom',
-                    offset: [0, -64] // height - shadow
+                    offset: [0, -64]
                 })
                 .setText('Petrified Forest National Park');
             
@@ -235,14 +223,8 @@
                 .setPopup(iconPopup)
                 .addTo(map);
 
-                //map.setCenter(arr[i])
-                // icon.onclick = (event) => {
-                    // you can add custom logic here. For example, modify popup.
-                //    iconPopup.setHTML(`<p>${event.target.getAttribute('id')}</p>`);
-                //    event.stopPropagation();
-                //}
-
-                icon.onmouseenter = () => iconMarker.togglePopup(); // show/hide popup on mouse hover
+                // show/hide popup on mouse hover
+                icon.onmouseenter = () => iconMarker.togglePopup();
                 icon.onmouseleave = () => iconMarker.togglePopup();
 
             }

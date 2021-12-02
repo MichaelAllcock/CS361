@@ -138,15 +138,11 @@
         searchSubmit();
 
         async function searchSubmit(event) {
-            //event.preventDefault();
             const response = await fetch('/all');
             const parkData = await response.json();
-            //console.log(parkData);
 
             var input = "Big Bend";
             var data = getData(parkData, input);
-            //console.log(input);
-            //console.log(data);
         
             str1 = input + " National Park";
             str2 = "State: " + data.State;
@@ -170,7 +166,6 @@
         function getData (obj, key) {
             if( key in obj )
                 {
-                    //console.log( obj[key] );
                     return obj[key];
                 }
             else
