@@ -130,9 +130,21 @@
             <img id="parkImg">
             <p id="wiki_intro"></p>
         </div>
+
+        <div class="park-options">
+            <h3>List of parks to search for:</h3>
+            <p> Denali, Gates of the Arctic, Glacier Bay, Katmai, Kenai Fjords, Kobuk Valley, Lake Clark, Wrangell - St. Elias,
+                American Samoa, Grand Canyon, Petrified Forest, Saguaro, Hot Springs, Channel Islands, Death Valley,
+                Joshua Tree, Kings Canyon, Lassen Volcanic, Pinnacles, Redwood, Sequoia, Yosemite, Black Canyon of the Gunnison,
+                Great Sand Dunes, Mesa Verde, Rocky Mountain, Biscayne, Dry Tortugas, Everglades, Haleakala,
+                Hawaii Volcanoes, Indiana Dunes, Mammoth Cave, Acadia, Isle Royale, Voyageurs, Gateway Arch, Glacier,
+                Great Basin, Carlsbad Caverns, White Sands, Great Smoky Mountains, Theodore Roosevelt, Cuyahoga Valley, Crater Lake,
+                Congaree, Badlands, Wind Cave, Big Bend, Guadalupe Mountains, Virgin Islands, Arches, Bryce Canyon, Canyonlands,
+                Capitol Reef, Zion, Shenandoah, Mount Rainier, North Cascades, Olympic, New River Gorge, Grand Teton, Yellowstone</p>
+        </div>
     
     </main>
-    
+
     <!--Script to get data from search bar-->
     <script>
         var search = document.getElementById('search');
@@ -143,12 +155,9 @@
             event.preventDefault();
             const response = await fetch('/all');
             const parkData = await response.json();
-            //console.log(parkData);
 
             var input = document.getElementById("textInput").value;
             var data = getData(parkData, input);            
-            //console.log(input);
-            //console.log(data);
         
             str1 = "Name: " + input + " National Park";
             str2 = "State: " + data.State;
@@ -157,7 +166,7 @@
             str5 = "Area (km^2): " + data.Area;
             str6 = "Visitors in 2019: " + data.Visitors;
             str7 = "Website: ";
-            website = data.Website
+            website = data.Website;
 
             pname.innerHTML = str1;
             state.innerHTML = str2;
@@ -170,6 +179,7 @@
              // Wiki Scraper from Arek----------------------------------------------------------------------------
             const wiki = await fetch('http://areks-wikipedia-scraper.herokuapp.com/?page=' + input + '_National_Park');
             const wikiData = await wiki.json();
+            console.log(wikiData);
 
             wiki_intro.innerHTML = wikiData.intro
 
@@ -181,17 +191,25 @@
         function getData (obj, key) {
             if( key in obj )
                 {
-                    //console.log( obj[key] );
                     return obj[key];
                 }
             else
             {
                 console.log( "The key '" + key + "' is not in obj." );
                 pname.innerHTML = "Park '" + key + "' not found. Try again."
+                state.innerHTML = null;
+                geo.innerHTML = null;
+                date.innerHTML = null;
+                area.innerHTML = null;
+                vis.innerHTML = null;
+                web.innerHTML = null;
+
+                wiki_intro.innerHTML = null;
+                document.getElementById("parkImg").src = null;
+
             }
         };
-    
-    
+     
     </script>
 
 </body>
