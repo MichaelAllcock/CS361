@@ -1,4 +1,4 @@
-# CS361
+# CS361 - National Parks
 CS 361 Software Engineering class project
 
 To access USNP Database JSON file use fetch('/all/') to either capture all JSON data or park specific data.
