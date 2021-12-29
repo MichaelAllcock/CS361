@@ -1,6 +1,9 @@
 # CS361 - National Parks
 CS 361 Software Engineering class project
 
+To view video demonstration of project: https://drive.google.com/file/d/1k0bFpYj3HZtL1o0cWHIF7HoBIRczkhWk/view?usp=sharing
+
+To Access the Database API:
 To access USNP Database JSON file use fetch('/all/') to either capture all JSON data or park specific data.
 The URL for the API is: "http://flip2.engr.oregonstate.edu:8050/all/" (YOU MUST BE LOGGED ONTO THE OSU VPN).
 
